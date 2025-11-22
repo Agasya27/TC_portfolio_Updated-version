@@ -1,21 +1,28 @@
-# Interactive Portfolio Project
+# Agasya Butolia - Interactive Portfolio Project
 
 ## Overview
 
-This is a full-stack interactive portfolio application built with React, Express, and AI chatbot integration. The project showcases a modern, responsive personal portfolio with dynamic content delivery, featuring sections for projects, skills, certifications, and an AI-powered chat interface that can answer questions about the developer's work and expertise.
+This is a full-stack interactive portfolio application customized for **Agasya Butolia**, a Computer Science Engineering student (B.Tech, Direct Second Year, AI/ML specialization) from Nagpur, India. Built with React, Express, and AI chatbot integration, the portfolio showcases modern, responsive design with dynamic content delivery featuring projects, skills, certifications, and an AI-powered chat interface.
 
 The application uses a monorepo structure with a React frontend (Vite), Node.js/Express backend, and shared TypeScript schemas for type safety across the stack.
 
-**Current Status**: ✅ Fully implemented and tested (November 22, 2025)
-- All portfolio sections complete with exceptional visual quality
-- AI chatbot with 3 personas (Developer, Designer, Mentor) integrated
+**Current Status**: ✅ Fully customized and tested (November 22, 2025)
+- All portfolio sections complete with Agasya's real projects and information
+- AI chatbot with 3 personas (Developer Me, AI/ML Aspirant Me, Mentor Me) integrated
+- Projects: Mini Smart Computer with IoT, Pneumonia Detection using AI, Data Visualization Dashboard
+- Skills: Frontend, Backend, AI/ML, Tools (as per Agasya's expertise)
 - Dark/light theme toggle with localStorage persistence
 - Comprehensive data-testid attributes for QA testing
-- All e2e tests passing successfully
+- All pages rendering and API endpoints working correctly
 
-## User Preferences
+## User Information
 
-Preferred communication style: Simple, everyday language.
+**Name**: Agasya Butolia  
+**Location**: Nagpur, India  
+**Education**: Diploma in Computer Engineering (85.31%) + B.Tech CSE (AI/ML) - Direct Second Year  
+**Goal**: Paid SDE/AI Engineer internships  
+**Preferred communication style**: Simple, everyday language  
+**Personality**: Introverted, curious learner, passionate about real-world problem-solving
 
 ## System Architecture
 

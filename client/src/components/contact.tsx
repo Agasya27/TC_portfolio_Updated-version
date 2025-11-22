@@ -78,8 +78,9 @@ export function Contact() {
             className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto"
             data-testid="text-contact-subtitle"
           >
-            Have a project in mind or want to collaborate? I'd love to hear from
-            you. Send me a message and I'll respond as soon as possible.
+            I'm actively looking for paid SDE internship opportunities. Whether it's
+            a project discussion, internship inquiry, or just to connect, feel free
+            to reach out. I'll respond as soon as possible.
           </p>
 
           <div className="grid md:grid-cols-5 gap-12">
@@ -180,11 +181,11 @@ export function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
                     <a
-                      href="mailto:your.email@example.com"
+                      href="mailto:contact@agasyabutolia.com"
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                       data-testid="text-contact-email"
                     >
-                      your.email@example.com
+                      contact@agasyabutolia.com
                     </a>
                   </div>
                 </div>
@@ -201,7 +202,7 @@ export function Contact() {
                       className="text-sm text-muted-foreground"
                       data-testid="text-contact-location"
                     >
-                      [Your City, Country]
+                      Nagpur, India
                     </p>
                   </div>
                 </div>

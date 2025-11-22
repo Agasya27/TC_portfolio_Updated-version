@@ -1,0 +1,201 @@
+PROMPT START
+
+Continue building the portfolio project, but now update EVERYTHING to reflect the real identity, skills, background, and projects of:
+
+NAME: Agasya Butolia  
+ROLE: Computer Science Engineering Student (Direct Second Year), specializing in AI/ML  
+LOCATION: Nagpur, India  
+PERSONAL TRAITS: Introvert, curious learner, interested in real-world projects and problem solving  
+
+ACADEMIC BACKGROUND:
+- Diploma in Computer Engineering (85.31%)
+- Currently pursuing B.Tech CSE (AI/ML track)
+
+CAREER GOAL:
+- Become a Software Developer / AI Engineer
+- Looking for paid SDE internships
+
+====================
+REAL PROJECTS TO USE
+====================
+
+Replace any previous "Anandwan hospital management system" project with these three REAL projects:
+
+1) Mini Smart Computer with IoT
+   - id: 1
+   - title: "Mini Smart Computer with IoT"
+   - description: "Designed and implemented a mini embedded system with IoT connectivity for basic monitoring and control tasks."
+   - techStack: ["IoT", "Embedded Systems", "Microcontrollers", "Sensors"]
+   - role: "Designer & Developer"
+   - status: "Completed"
+   - link: ""        // keep empty or placeholder
+   - github: ""      // keep empty or placeholder
+
+2) Pneumonia Detection using AI
+   - id: 2
+   - title: "Pneumonia Detection using AI"
+   - description: "Built a machine learning / deep learning model to classify pneumonia from medical images, exploring data preprocessing, model training, and evaluation."
+   - techStack: ["Python", "Machine Learning", "Deep Learning"]
+   - role: "ML Developer"
+   - status: "In Progress" or "Completed" (use whichever fits best)
+   - link: ""        // placeholder, user will update later
+   - github: ""      // placeholder, user will update later
+
+3) Data Visualization Dashboard
+   - id: 3
+   - title: "Data Visualization Dashboard"
+   - description: "A full-stack web application for uploading, analyzing, and visualizing CSV/Excel data with interactive tables and charts."
+   - techStack: ["React", "Node.js", "Express", "JWT", "Charts Library (e.g. Chart.js/Recharts)"]
+   - role: "Full-Stack Developer"
+   - status: "In Progress" or "Completed"
+   - link: ""        // placeholder
+   - github: ""      // placeholder
+   - Additional features (make sure these are reflected clearly in the UI and, where reasonable, in the backend structure / comments):
+     - Secure Authentication: JWT-based signup/login with role-based access control (Admin/Member)
+     - File Upload: Drag-and-drop CSV and Excel file upload with real-time progress tracking
+     - Data Management: Store and manage uploaded files with metadata
+     - Interactive Tables: Server-side pagination, sorting, searching, and column-level filtering
+     - Dynamic Charts: Bar, Line, and Pie charts with real-time updates based on filters
+     - Export: Download filtered data as CSV and charts as PNG
+     - Theme Support: Light/Dark mode toggle with localStorage persistence
+     - Role-Based Access: Admins can view all files, Members see only their own uploads
+
+Make sure the `/api/projects` endpoint returns these three projects with clear fields:
+- id
+- title
+- description
+- techStack
+- role
+- status
+- link
+- github
+
+=====================
+SKILLS SECTION (UPDATE)
+=====================
+
+Use these skill categories and values in the Skills section:
+
+Frontend:
+- HTML
+- CSS
+- JavaScript
+- React
+- Tailwind CSS
+- WebStorm
+
+Backend:
+- Node.js
+- Express
+
+AI/ML:
+- Basics of AI/ML
+- Naive Bayes
+- Minimax
+- Alpha-Beta Pruning
+- Constraint Satisfaction Problems (CSP)
+
+Tools:
+- Git
+- GitHub
+- VS Code
+- IoT hardware tools
+
+=======================
+CERTIFICATIONS ENDPOINT
+=======================
+
+For `GET /api/certifications`, add placeholder entries such as:
+
+[
+  {
+    "id": 1,
+    "title": "Placeholder Certification 1",
+    "issuer": "To be updated",
+    "date": "YYYY-MM-DD",
+    "link": ""
+  },
+  {
+    "id": 2,
+    "title": "Placeholder Certification 2",
+    "issuer": "To be updated",
+    "date": "YYYY-MM-DD",
+    "link": ""
+  }
+]
+
+Comment in the code where Agasya can edit these easily later.
+
+===============
+ABOUT SECTION
+===============
+
+Update the About section content to something like:
+
+"I’m Agasya Butolia, an introverted but passionate Computer Science student from Nagpur. I love solving real-world problems, exploring AI/ML, and building meaningful technology projects. I’ve worked on IoT systems, AI-based pneumonia detection, and a data visualization dashboard. I am currently seeking paid SDE internship opportunities to learn, grow, and contribute."
+
+Use this text (or a slightly polished version) in the About section component.
+
+===============
+VIDEO SECTION
+===============
+
+In the video/introduction section:
+
+- Keep a placeholder video URL (e.g., a sample link).
+- Add text like:
+  "Soon I’ll add a short introduction video here where I talk about my journey, projects, and why I’m excited about AI and software development. For now, this is a placeholder."
+
+===============
+CONTACT SECTION
+===============
+
+Emphasize openness to internship roles:
+
+Add text like:
+"I’m actively looking for paid SDE internship opportunities. If you’re interested in working together or have an opportunity that fits my skills, feel free to reach out through this form."
+
+POST `/api/contact` should still:
+- Validate { name, email, message }.
+- Log the request server-side.
+- Return a success response.
+
+===========================
+AI CHATBOT PERSONA UPDATE
+===========================
+
+Update `/api/chat` system prompt so the AI always knows:
+
+- The user is **Agasya Butolia**, CSE (AI/ML) student from Nagpur.
+- Background: Diploma in Computer Engineering (85.31%), Direct Second Year B.Tech CSE (AI/ML).
+- Projects: Mini Smart Computer with IoT, Pneumonia Detection using AI, Data Visualization Dashboard.
+- Career goal: Paid SDE / AI Engineer internships.
+- Personality: Introvert, curious, hardworking, honest about what they know and don’t know.
+
+The chatbot should:
+- Speak in first person as if it’s Agasya.
+- Tone: friendly, humble, clear, and concise.
+- Be able to:
+  1) Talk about these three projects with correct details.
+  2) Discuss skills and interests, especially AI/ML and full-stack web development.
+  3) Answer questions from recruiters or mentors about strengths, goals, and learning journey.
+
+MODES in the chat UI:
+- "Developer Me": Focuses on coding, full-stack work, and project implementation details.
+- "AI/ML Aspirant Me": Focuses on AI/ML journey, concepts studied, and future plans.
+- "Mentor Me": Gives supportive guidance to juniors or peers about learning coding/AI, surviving exams, and building projects.
+
+Ensure `/api/chat`:
+- Accepts a `mode` field and slightly adjusts the system prompt depending on the selected mode.
+- Uses the last 5–10 messages as context to maintain conversation flow.
+
+===========================
+GENERAL REMINDERS
+===========================
+
+- Replace all previous dummy or generic placeholder text with content that matches Agasya’s profile and projects.
+- Make sure `/api/projects`, `/api/certifications`, and `/api/chat` are consistent with this data.
+- Keep running and testing the app frequently to ensure there are no build or runtime errors.
+- If any field is missing or unclear, use a sensible placeholder and clearly comment it in the code so Agasya can change it later.
+
+PROMPT END

@@ -31,28 +31,28 @@ export class MemStorage implements IStorage {
   private seedProjects() {
     const projectsData: Omit<Project, "id">[] = [
       {
-        title: "AI-Powered Task Manager",
+        title: "Mini Smart Computer with IoT",
         description:
-          "A smart task management application with AI-driven priority suggestions and natural language input. Built with React, Node.js, and OpenAI API for intelligent task categorization.",
-        techStack: ["React", "TypeScript", "Node.js", "OpenAI", "PostgreSQL"],
-        link: "https://example.com/task-manager",
-        github: "https://github.com/yourusername/ai-task-manager",
+          "Designed and implemented a mini embedded system with IoT connectivity for basic monitoring and control tasks. This project involved working with microcontrollers and sensors to create a functional IoT prototype.",
+        techStack: ["IoT", "Embedded Systems", "Microcontrollers", "Sensors"],
+        link: "",
+        github: "",
       },
       {
-        title: "Real-Time Collaboration Platform",
+        title: "Pneumonia Detection using AI",
         description:
-          "A modern collaboration tool enabling teams to work together seamlessly with real-time updates, video calls, and shared workspaces. Features WebSocket integration for instant synchronization.",
-        techStack: ["Next.js", "WebSocket", "MongoDB", "Tailwind CSS", "WebRTC"],
-        link: "https://example.com/collab-platform",
-        github: "https://github.com/yourusername/collab-platform",
+          "Built a machine learning / deep learning model to classify pneumonia from medical images, exploring data preprocessing, model training, and evaluation. This project combined my passion for AI and healthcare applications.",
+        techStack: ["Python", "Machine Learning", "Deep Learning"],
+        link: "",
+        github: "",
       },
       {
-        title: "E-Commerce Analytics Dashboard",
+        title: "Data Visualization Dashboard",
         description:
-          "Comprehensive analytics dashboard for e-commerce businesses featuring real-time sales tracking, customer insights, and predictive analytics using machine learning models.",
-        techStack: ["Vue.js", "Python", "FastAPI", "TensorFlow", "Redis"],
-        link: "https://example.com/analytics",
-        github: "https://github.com/yourusername/ecommerce-analytics",
+          "A full-stack web application for uploading, analyzing, and visualizing CSV/Excel data with interactive tables and charts. Features include JWT-based authentication, role-based access control, file upload with progress tracking, server-side pagination, and export functionality.",
+        techStack: ["React", "Node.js", "Express", "JWT", "Recharts"],
+        link: "",
+        github: "",
       },
     ];
 
@@ -63,18 +63,21 @@ export class MemStorage implements IStorage {
   }
 
   private seedCertifications() {
+    // TODO: Agasya - Update these with your actual certifications.
+    // You can add certifications from platforms like Coursera, edX, LinkedIn Learning, etc.
+    // Format: { title, issuer, date (YYYY-MM-DD), link (optional) }
     const certificationsData: Omit<Certification, "id">[] = [
       {
-        title: "AWS Certified Solutions Architect",
-        issuer: "Amazon Web Services",
+        title: "Placeholder Certification 1",
+        issuer: "To be updated",
         date: "2024",
-        link: "https://aws.amazon.com/certification/",
+        link: "",
       },
       {
-        title: "Professional Scrum Master I",
-        issuer: "Scrum.org",
-        date: "2023",
-        link: "https://www.scrum.org/assessments/professional-scrum-master-i-certification",
+        title: "Placeholder Certification 2",
+        issuer: "To be updated",
+        date: "2024",
+        link: "",
       },
     ];
 

@@ -62,7 +62,7 @@ export const chatMessageSchema = z.object({
 
 export const chatRequestSchema = z.object({
   messages: z.array(chatMessageSchema),
-  mode: z.enum(["developer", "designer", "mentor"]).optional().default("developer"),
+  mode: z.enum(["developer", "aiml_aspirant", "mentor"]).optional().default("developer"),
 });
 
 export type ChatMessage = z.infer<typeof chatMessageSchema>;

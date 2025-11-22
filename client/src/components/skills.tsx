@@ -13,12 +13,12 @@ const skillCategories = [
     title: "Frontend",
     icon: Code2,
     skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
       "React",
-      "TypeScript",
-      "Next.js",
       "Tailwind CSS",
-      "Vue.js",
-      "HTML/CSS",
+      "WebStorm",
     ],
   },
   {
@@ -27,28 +27,24 @@ const skillCategories = [
     skills: [
       "Node.js",
       "Express",
-      "PostgreSQL",
-      "MongoDB",
-      "REST APIs",
-      "GraphQL",
     ],
   },
   {
     title: "AI/ML",
     icon: Cpu,
     skills: [
-      "OpenAI API",
-      "LangChain",
-      "Python",
-      "TensorFlow",
-      "Machine Learning",
-      "NLP",
+      "Basics of AI/ML",
+      "Naive Bayes",
+      "Minimax",
+      "Alpha-Beta Pruning",
+      "Constraint Satisfaction Problems",
+      "Deep Learning",
     ],
   },
   {
     title: "Tools",
     icon: Wrench,
-    skills: ["Git", "Docker", "AWS", "CI/CD", "Jest", "Figma"],
+    skills: ["Git", "GitHub", "VS Code", "IoT Hardware Tools"],
   },
 ];
 

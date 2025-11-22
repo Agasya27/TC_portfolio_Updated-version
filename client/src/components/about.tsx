@@ -5,23 +5,23 @@ import { Code, Heart, Rocket, Users } from "lucide-react";
 const milestones = [
   {
     icon: Code,
-    title: "5+ Years",
-    description: "Coding Experience",
+    title: "Direct 2nd Year",
+    description: "B.Tech CSE (AI/ML)",
   },
   {
     icon: Rocket,
-    title: "20+ Projects",
-    description: "Successfully Delivered",
+    title: "3+ Projects",
+    description: "Full-Stack & ML",
   },
   {
     icon: Users,
-    title: "10+ Clients",
-    description: "Happy Customers",
+    title: "Diploma + B.Tech",
+    description: "85.31% Score",
   },
   {
     icon: Heart,
-    title: "Always Learning",
-    description: "New Technologies",
+    title: "Passionate Learner",
+    description: "AI/ML & Problem Solving",
   },
 ];
 
@@ -49,29 +49,31 @@ export function About() {
                   className="text-base md:text-lg leading-relaxed mb-6"
                   data-testid="text-about-bio-1"
                 >
-                  I'm a passionate full-stack developer who loves creating
-                  innovative solutions that make a difference. With a strong
-                  foundation in modern web technologies and a keen interest in
-                  artificial intelligence, I bring ideas to life through clean,
-                  efficient code.
+                  I'm Agasya Butolia, an introverted but passionate Computer Science
+                  student from Nagpur. Currently pursuing B.Tech in CSE with an AI/ML
+                  specialization (Direct Second Year), I love solving real-world
+                  problems through code and exploring the intersection of AI and
+                  software development.
                 </p>
                 <p
                   className="text-base md:text-lg leading-relaxed mb-6"
                   data-testid="text-about-bio-2"
                 >
-                  My journey in tech began with curiosity and has evolved into a
-                  career driven by continuous learning and problem-solving. I
-                  specialize in building scalable applications using React, Node.js,
-                  and cutting-edge AI technologies.
+                  I've worked on diverse projects—from IoT embedded systems to
+                  deep learning models for medical image classification, and
+                  full-stack web applications with interactive data visualization.
+                  My journey combines practical hands-on experience with a strong
+                  foundation in both academia and real-world problem solving.
                 </p>
                 <p
                   className="text-base md:text-lg leading-relaxed"
                   data-testid="text-about-bio-3"
                 >
-                  When I'm not coding, you'll find me exploring new frameworks,
-                  contributing to open-source projects, or sharing knowledge with
-                  the developer community. I believe in writing code that's not
-                  just functional, but maintainable and elegant.
+                  I'm actively seeking paid SDE internship opportunities to grow as
+                  an engineer. I'm honest about what I know, curious about what I
+                  don't, and committed to building meaningful technology that makes
+                  a difference. Let's connect if you have an opportunity or want to
+                  collaborate!
                 </p>
               </div>
 

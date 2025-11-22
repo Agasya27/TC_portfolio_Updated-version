@@ -63,7 +63,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         )
         .join("\n");
 
-      const reply = await chatWithAI(messages, mode, projectsData);
+      const reply = await chatWithAI(messages, mode as "developer" | "aiml_aspirant" | "mentor", projectsData);
 
       res.json({ reply });
     } catch (error) {

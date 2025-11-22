@@ -30,21 +30,20 @@ export function Hero() {
             className="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight text-white mb-6"
             data-testid="text-hero-name"
           >
-            [Your Name]
+            Agasya Butolia
           </h1>
           <p
             className="text-xl md:text-2xl text-white/90 mb-4"
             data-testid="text-hero-role"
           >
-            Full-Stack Developer & AI Enthusiast
+            CSE Student | AI/ML & Full-Stack Developer | Internship Seeker
           </p>
           <p
             className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-12"
             data-testid="text-hero-tagline"
           >
-            Building intelligent, user-centric applications that solve real-world
-            problems. Passionate about clean code, modern technologies, and
-            continuous learning.
+            Passionate about solving real-world problems through AI, IoT, and full-stack
+            development. Looking for paid SDE internships to grow and contribute.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 mb-12">

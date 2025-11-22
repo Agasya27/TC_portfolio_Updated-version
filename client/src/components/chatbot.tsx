@@ -17,20 +17,20 @@ import {
 import { apiRequest } from "@/lib/queryClient";
 import type { ChatMessage, ChatRequest } from "@shared/schema";
 
-type Mode = "developer" | "designer" | "mentor";
+type Mode = "developer" | "aiml_aspirant" | "mentor";
 
 const modeConfig = {
   developer: {
     label: "Developer Me",
-    description: "Technical expertise & coding",
+    description: "Coding & full-stack development",
   },
-  designer: {
-    label: "Designer Me",
-    description: "UI/UX & creative thinking",
+  aiml_aspirant: {
+    label: "AI/ML Aspirant Me",
+    description: "AI/ML journey & concepts",
   },
   mentor: {
     label: "Mentor Me",
-    description: "Career advice & learning",
+    description: "Career advice & learning guidance",
   },
 };
 
@@ -51,10 +51,10 @@ export function ChatBot() {
 
   const mutation = useMutation({
     mutationFn: async (request: ChatRequest) => {
-      const response = await apiRequest<{ reply: string }>("POST", "/api/chat", request);
-      return response;
+      const res = await apiRequest("POST", "/api/chat", request);
+      return res.json() as Promise<{ reply: string }>;
     },
-    onSuccess: (data) => {
+    onSuccess: (data: { reply: string }) => {
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: data.reply },
@@ -157,7 +157,7 @@ export function ChatBot() {
                   <div className="text-center py-12 text-muted-foreground">
                     <Bot className="h-12 w-12 mx-auto mb-4 opacity-50" />
                     <p className="text-sm" data-testid="text-chat-welcome">
-                      Hi! I'm an AI assistant representing [Your Name].
+                      Hi! I'm an AI assistant representing Agasya Butolia.
                     </p>
                     <p className="text-xs mt-2">
                       {modeConfig[mode].description}

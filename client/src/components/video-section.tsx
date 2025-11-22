@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 
 const strengths = [
-  "Problem-solving mindset with attention to detail",
-  "Strong collaboration and communication skills",
-  "Passion for clean, maintainable code",
-  "Quick learner with adaptability to new technologies",
+  "Strong foundation in AI/ML with practical project experience",
+  "Full-stack web development skills (React, Node.js, Express)",
+  "IoT and embedded systems knowledge with hardware integration",
+  "Honest, curious, and hardworking – eager to learn and grow",
 ];
 
 export function VideoSection() {
@@ -23,24 +23,25 @@ export function VideoSection() {
             className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-center"
             data-testid="text-video-heading"
           >
-            Why Hire Me?
+            My Journey & Approach
           </h2>
           <p
             className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto"
             data-testid="text-video-subtitle"
           >
-            Get to know me better through this quick introduction about my approach
-            to development and what I can bring to your team.
+            Soon I'll add a short introduction video here where I talk about my
+            journey from Diploma to B.Tech, my projects, and why I'm excited about
+            AI and software development. For now, here are the key things about me.
           </p>
 
           <div className="aspect-video rounded-xl overflow-hidden mb-8 bg-muted">
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/5">
               <div className="text-center p-8">
                 <p className="text-muted-foreground mb-4" data-testid="text-video-placeholder">
-                  Video placeholder - Replace this with your 1-2 minute introduction video
+                  Introduction video coming soon - will share my journey, projects, and passion for AI & development
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  Recommended: Upload your video to YouTube or Vimeo and embed the URL here
+                  In the meantime, connect with me through the chat or contact form below!
                 </p>
               </div>
             </div>
@@ -79,14 +80,15 @@ export function VideoSection() {
                 className="text-base leading-relaxed mb-4"
                 data-testid="text-mindset-content"
               >
-                I believe in building software that makes a real impact. Every line
-                of code I write is an opportunity to create something better, more
-                efficient, and more user-friendly.
+                I'm passionate about solving real-world problems with technology. Whether
+                it's building ML models for healthcare, designing IoT systems, or creating
+                interactive web applications, I believe every project should create
+                genuine value.
               </p>
               <p className="text-base leading-relaxed">
-                My approach combines technical excellence with empathy for users and
-                teammates. I'm not just writing code – I'm solving problems and
-                building solutions that people love to use.
+                As an introvert, I bring focused, thoughtful problem-solving to every
+                challenge. I'm not afraid to ask questions, learn from mistakes, and
+                collaborate to build the best solutions possible.
               </p>
             </Card>
           </div>

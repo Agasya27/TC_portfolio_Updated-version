@@ -20,7 +20,7 @@ export function Navigation() {
             className="text-lg font-display font-bold"
             data-testid="button-logo"
           >
-            [Your Name]
+            Agasya
           </Button>
 
           <div className="flex items-center gap-2">
