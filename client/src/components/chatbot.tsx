@@ -18,6 +18,7 @@ import { apiRequest } from "@/lib/queryClient";
 import type { ChatMessage, ChatRequest } from "@shared/schema";
 
 type Mode = "developer" | "aiml_aspirant" | "mentor";
+type AIProvider = "openai" | "gemini";
 
 const modeConfig = {
   developer: {
@@ -39,6 +40,7 @@ export function ChatBot() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [mode, setMode] = useState<Mode>("developer");
+  const [aiProvider, setAiProvider] = useState<AIProvider>("openai");
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -84,6 +86,7 @@ export function ChatBot() {
     mutation.mutate({
       messages: contextMessages,
       mode,
+      aiProvider,
     });
   };
 
@@ -138,18 +141,38 @@ export function ChatBot() {
                 </Button>
               </div>
 
-              <div className="px-4 py-2 border-b flex gap-2 overflow-x-auto">
-                {(Object.keys(modeConfig) as Mode[]).map((m) => (
+              <div className="px-4 py-2 border-b space-y-2">
+                <div className="flex gap-2 overflow-x-auto">
+                  {(Object.keys(modeConfig) as Mode[]).map((m) => (
+                    <Badge
+                      key={m}
+                      variant={mode === m ? "default" : "secondary"}
+                      className="cursor-pointer whitespace-nowrap hover-elevate active-elevate-2"
+                      onClick={() => setMode(m)}
+                      data-testid={`button-mode-${m}`}
+                    >
+                      {modeConfig[m].label}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="flex gap-2">
                   <Badge
-                    key={m}
-                    variant={mode === m ? "default" : "secondary"}
+                    variant={aiProvider === "openai" ? "default" : "secondary"}
                     className="cursor-pointer whitespace-nowrap hover-elevate active-elevate-2"
-                    onClick={() => setMode(m)}
-                    data-testid={`button-mode-${m}`}
+                    onClick={() => setAiProvider("openai")}
+                    data-testid="button-provider-openai"
                   >
-                    {modeConfig[m].label}
+                    GPT-5
                   </Badge>
-                ))}
+                  <Badge
+                    variant={aiProvider === "gemini" ? "default" : "secondary"}
+                    className="cursor-pointer whitespace-nowrap hover-elevate active-elevate-2"
+                    onClick={() => setAiProvider("gemini")}
+                    data-testid="button-provider-gemini"
+                  >
+                    Gemini
+                  </Badge>
+                </div>
               </div>
 
               <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">

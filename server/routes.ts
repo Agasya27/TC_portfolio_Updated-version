@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { chatWithAI } from "./openai-client";
+import { chatWithGemini } from "./gemini-client";
 import {
   insertContactMessageSchema,
   chatRequestSchema,
@@ -53,7 +54,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/chat", async (req, res) => {
     try {
       const validatedData = chatRequestSchema.parse(req.body);
-      const { messages, mode = "developer" } = validatedData;
+      const { messages, mode = "developer", aiProvider = "openai" } = validatedData;
 
       const projects = await storage.getProjects();
       const projectsData = projects
@@ -63,7 +64,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
         )
         .join("\n");
 
-      const reply = await chatWithAI(messages, mode as "developer" | "aiml_aspirant" | "mentor", projectsData);
+      let reply: string;
+
+      if (aiProvider === "gemini") {
+        reply = await chatWithGemini(
+          messages,
+          mode as "developer" | "aiml_aspirant" | "mentor",
+          projectsData
+        );
+      } else {
+        reply = await chatWithAI(
+          messages,
+          mode as "developer" | "aiml_aspirant" | "mentor",
+          projectsData
+        );
+      }
 
       res.json({ reply });
     } catch (error) {
