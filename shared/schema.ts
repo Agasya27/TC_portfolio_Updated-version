@@ -63,7 +63,7 @@ export const chatMessageSchema = z.object({
 export const chatRequestSchema = z.object({
   messages: z.array(chatMessageSchema),
   mode: z.enum(["developer", "aiml_aspirant", "mentor"]).optional().default("developer"),
-  aiProvider: z.enum(["openai", "gemini"]).optional().default("openai"),
+  aiProvider: z.enum(["openai", "openrouter"]).optional().default("openai"),
 });
 
 export type ChatMessage = z.infer<typeof chatMessageSchema>;

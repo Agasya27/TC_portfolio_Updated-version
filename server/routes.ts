@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { chatWithAI } from "./openai-client";
-import { chatWithGemini } from "./gemini-client";
+import { chatWithOpenRouter } from "./openrouter-client";
 import {
   insertContactMessageSchema,
   chatRequestSchema,
@@ -66,8 +66,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       let reply: string;
 
-      if (aiProvider === "gemini") {
-        reply = await chatWithGemini(
+      if (aiProvider === "openrouter") {
+        reply = await chatWithOpenRouter(
           messages,
           mode as "developer" | "aiml_aspirant" | "mentor",
           projectsData

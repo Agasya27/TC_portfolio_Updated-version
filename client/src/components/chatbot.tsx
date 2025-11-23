@@ -18,7 +18,7 @@ import { apiRequest } from "@/lib/queryClient";
 import type { ChatMessage, ChatRequest } from "@shared/schema";
 
 type Mode = "developer" | "aiml_aspirant" | "mentor";
-type AIProvider = "openai" | "gemini";
+type AIProvider = "openai" | "openrouter";
 
 const modeConfig = {
   developer: {
@@ -165,12 +165,12 @@ export function ChatBot() {
                     GPT-5
                   </Badge>
                   <Badge
-                    variant={aiProvider === "gemini" ? "default" : "secondary"}
+                    variant={aiProvider === "openrouter" ? "default" : "secondary"}
                     className="cursor-pointer whitespace-nowrap hover-elevate active-elevate-2"
-                    onClick={() => setAiProvider("gemini")}
-                    data-testid="button-provider-gemini"
+                    onClick={() => setAiProvider("openrouter")}
+                    data-testid="button-provider-openrouter"
                   >
-                    Gemini
+                    OpenRouter
                   </Badge>
                 </div>
               </div>

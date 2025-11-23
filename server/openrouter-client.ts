@@ -1,14 +1,6 @@
-import { GoogleGenAI } from "@google/genai";
+const apiKey = process.env.OPENROUTER_API_KEY;
 
-// DON'T DELETE THIS COMMENT
-// Follow these instructions when using this blueprint:
-// - Note that the newest Gemini model series is "gemini-2.5-flash" or "gemini-2.5-pro"
-// - do not change this unless explicitly requested by the user
-
-const apiKey = process.env.GEMINI_API_KEY;
-const gemini = apiKey ? new GoogleGenAI({ apiKey }) : null;
-
-export async function chatWithGemini(
+export async function chatWithOpenRouter(
   messages: Array<{ role: string; content: string }>,
   mode: "developer" | "aiml_aspirant" | "mentor",
   projectsData: string
@@ -83,32 +75,41 @@ When answering questions (Mentor Me mode):
 - Keep a friendly, understanding tone`,
   };
 
-  if (!gemini) {
-    return "I apologize, but the Gemini API is not configured yet. Please ask the developer to set up the GEMINI_API_KEY environment variable to enable AI chat functionality.";
+  if (!apiKey) {
+    return "I apologize, but the OpenRouter API is not configured yet. Please ask the developer to set up the OPENROUTER_API_KEY environment variable to enable AI chat functionality.";
   }
 
   try {
     const systemPrompt = systemPrompts[mode as keyof typeof systemPrompts];
     
-    const conversationHistory = messages.map((m) => ({
-      role: m.role === "user" ? "user" : "model",
-      parts: [{ text: m.content }],
-    }));
+    const chatMessages = [
+      { role: "user" as const, content: systemPrompt },
+      ...messages.map((m) => ({ role: m.role as "user" | "assistant", content: m.content })),
+    ];
 
-    const response = await gemini.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: [
-        { role: "user", parts: [{ text: systemPrompt }] },
-        ...conversationHistory,
-      ],
-      config: {
-        maxOutputTokens: 500,
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        model: "openai/gpt-4-turbo",
+        messages: chatMessages,
+        max_tokens: 500,
+      }),
     });
 
-    return response.text || "I apologize, I couldn't generate a response. Please try again.";
+    if (!response.ok) {
+      const error = await response.text();
+      console.error("OpenRouter API error:", error);
+      throw new Error(`OpenRouter API error: ${response.status}`);
+    }
+
+    const data = await response.json() as { choices: Array<{ message: { content: string } }> };
+    return data.choices[0]?.message?.content || "I apologize, I couldn't generate a response. Please try again.";
   } catch (error) {
-    console.error("Gemini API error:", error);
+    console.error("OpenRouter API error:", error);
     throw new Error("Failed to get AI response");
   }
 }
