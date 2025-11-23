@@ -48,3 +48,8 @@ waitForPort = 5000
 
 [agent]
 integrations = ["javascript_mem_db:1.0.0", "javascript_openai:1.0.0", "javascript_gemini:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+VITE_WEB3FORMS_ACCESS_KEY = "15b95061-baab-404e-9a2e-1539734ee55b"

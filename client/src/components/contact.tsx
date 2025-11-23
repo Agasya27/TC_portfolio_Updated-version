@@ -10,6 +10,7 @@ import { Mail, MapPin, Clock } from "lucide-react";
 export function Contact() {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
+  const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -87,7 +88,7 @@ export function Contact() {
                   <input
                     type="hidden"
                     name="access_key"
-                    value="YOUR_WEB3FORMS_ACCESS_KEY_HERE"
+                    value={web3formsKey}
                   />
                   <input
                     type="hidden"
