@@ -39,7 +39,7 @@ export function Hero() {
             data-testid="text-hero-tagline"
           >
             Passionate about solving real-world problems through AI, IoT, and full-stack
-            development. Looking for paid SDE internships to grow and contribute.
+            development. Looking for  SDE internships to grow and contribute.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 mb-12">

@@ -13,11 +13,7 @@ const milestones = [
     title: "3+ Projects",
     description: "Full-Stack & ML",
   },
-  {
-    icon: Users,
-    title: "Diploma + B.Tech",
-    description: "85.31% Score",
-  },
+  
   {
     icon: Heart,
     title: "Passionate Learner",
