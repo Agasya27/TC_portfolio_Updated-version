@@ -25,17 +25,15 @@ export function Video() {
             Get to know me better through this introductory video.
           </p>
 
-          <Card className="overflow-hidden" data-testid="card-video-container">
-            <div className="aspect-video w-full">
-              <video
-                className="w-full h-full object-cover"
-                controls
-                data-testid="video-player"
-              >
-                <source src={videoFile} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <Card className="overflow-hidden inline-block mx-auto" data-testid="card-video-container">
+            <video
+              className="max-w-sm md:max-w-lg h-auto"
+              controls
+              data-testid="video-player"
+            >
+              <source src={videoFile} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </Card>
         </motion.div>
       </div>
