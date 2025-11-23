@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import {
   Code2,
   Database,
-  Cpu,
   Wrench,
 } from "lucide-react";
 
@@ -30,21 +29,20 @@ const skillCategories = [
     ],
   },
   {
-    title: "AI/ML",
-    icon: Cpu,
+    title: "Tools & Technologies",
+    icon: Wrench,
     skills: [
-      "Basics of AI/ML",
+      "Git",
+      "GitHub",
+      "VS Code",
+      "IoT Hardware Tools",
+      "AI/ML",
+      "Deep Learning",
       "Naive Bayes",
       "Minimax",
       "Alpha-Beta Pruning",
       "Constraint Satisfaction Problems",
-      "Deep Learning",
     ],
-  },
-  {
-    title: "Tools",
-    icon: Wrench,
-    skills: ["Git", "GitHub", "VS Code", "IoT Hardware Tools"],
   },
 ];
 

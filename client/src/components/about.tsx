@@ -5,8 +5,8 @@ import { Code, Heart, Rocket, Users } from "lucide-react";
 const milestones = [
   {
     icon: Code,
-    title: "Direct 2nd Year",
-    description: "B.Tech CSE (AI/ML)",
+    title: "B.Tech CSE",
+    description: "AI/ML Specialization",
   },
   {
     icon: Rocket,
@@ -51,9 +51,8 @@ export function About() {
                 >
                   I'm Agasya Butolia, an introverted but passionate Computer Science
                   student from Nagpur. Currently pursuing B.Tech in CSE with an AI/ML
-                  specialization (Direct Second Year), I love solving real-world
-                  problems through code and exploring the intersection of AI and
-                  software development.
+                  specialization, I love solving real-world problems through code and
+                  exploring the intersection of AI and software development.
                 </p>
                 <p
                   className="text-base md:text-lg leading-relaxed mb-6"
