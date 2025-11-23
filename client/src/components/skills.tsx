@@ -26,6 +26,8 @@ const skillCategories = [
     skills: [
       "Node.js",
       "Express",
+      "SQLite",
+      "Firebase"
     ],
   },
   {
@@ -38,10 +40,6 @@ const skillCategories = [
       "IoT Hardware Tools",
       "AI/ML",
       "Deep Learning",
-      "Naive Bayes",
-      "Minimax",
-      "Alpha-Beta Pruning",
-      "Constraint Satisfaction Problems",
     ],
   },
 ];
