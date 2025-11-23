@@ -10,9 +10,8 @@ import { Mail, MapPin, Clock } from "lucide-react";
 export function Contact() {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
-  const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     const formData = new FormData(e.currentTarget);
@@ -47,7 +46,35 @@ export function Contact() {
       return;
     }
 
-    formRef.current?.submit();
+    try {
+      const response = await fetch("https://formspree.io/f/xqajjylz", {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Your message has been sent. I'll get back to you soon!",
+        });
+        formRef.current?.reset();
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -79,22 +106,10 @@ export function Contact() {
               <Card className="p-8">
                 <form
                   ref={formRef}
-                  action="https://api.web3forms.com/submit"
-                  method="POST"
                   onSubmit={handleSubmit}
                   className="space-y-6"
                   data-testid="form-contact"
                 >
-                  <input
-                    type="hidden"
-                    name="access_key"
-                    value={web3formsKey}
-                  />
-                  <input
-                    type="hidden"
-                    name="redirect"
-                    value={window.location.href}
-                  />
 
                   <div>
                     <label className="text-sm font-semibold mb-2 block">Name</label>
