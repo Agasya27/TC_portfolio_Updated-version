@@ -64,7 +64,7 @@ export function Hero() {
 
           <div className="flex items-center justify-center gap-6" data-testid="container-social-links">
             <a
-              href="https://github.com"
+              href="https://github.com/Agasya27"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors"
@@ -74,7 +74,7 @@ export function Hero() {
               <Github className="h-6 w-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/agasya-butolia/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/70 hover:text-white transition-colors"
@@ -84,7 +84,7 @@ export function Hero() {
               <Linkedin className="h-6 w-6" />
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:agasyabutolia@gmail.com"
               className="text-white/70 hover:text-white transition-colors"
               data-testid="link-email"
               aria-label="Email Contact"
