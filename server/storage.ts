@@ -36,7 +36,7 @@ export class MemStorage implements IStorage {
           "Designed and implemented a mini embedded system with IoT connectivity for basic monitoring and control tasks. This project involved working with microcontrollers and sensors to create a functional IoT prototype.",
         techStack: ["IoT", "Embedded Systems", "Microcontrollers", "Sensors"],
         link: "",
-        github: "",
+        github: "https://github.com/Agasya27/mini-computer-with-implementation-of-IOT",
       },
       {
         title: "Pneumonia Detection using AI",
@@ -44,7 +44,7 @@ export class MemStorage implements IStorage {
           "Built a machine learning / deep learning model to classify pneumonia from medical images, exploring data preprocessing, model training, and evaluation. This project combined my passion for AI and healthcare applications.",
         techStack: ["Python", "Machine Learning", "Deep Learning"],
         link: "",
-        github: "",
+        github: "https://github.com/Agasya27/pneumonia-detection-ML-pro",
       },
       {
         title: "Data Visualization Dashboard",
@@ -52,7 +52,7 @@ export class MemStorage implements IStorage {
           "A full-stack web application for uploading, analyzing, and visualizing CSV/Excel data with interactive tables and charts. Features include JWT-based authentication, role-based access control, file upload with progress tracking, server-side pagination, and export functionality.",
         techStack: ["React", "Node.js", "Express", "JWT", "Recharts"],
         link: "",
-        github: "",
+        github: "https://github.com/Agasya27/Data-Visualization-Dashboard",
       },
     ];
 

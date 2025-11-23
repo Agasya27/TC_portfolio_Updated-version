@@ -1,62 +1,52 @@
-import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Clock, CheckCircle2 } from "lucide-react";
-import { insertContactMessageSchema, type InsertContactMessage } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
+import { Mail, MapPin, Clock } from "lucide-react";
 
 export function Contact() {
   const { toast } = useToast();
-  const [isSuccess, setIsSuccess] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const form = useForm<InsertContactMessage>({
-    resolver: zodResolver(insertContactMessageSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
 
-  const mutation = useMutation({
-    mutationFn: async (data: InsertContactMessage) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      setIsSuccess(true);
-      form.reset();
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setTimeout(() => setIsSuccess(false), 5000);
-    },
-    onError: () => {
+    if (!name || !email || !message) {
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: "Please fill in all fields.",
         variant: "destructive",
       });
-    },
-  });
+      return;
+    }
 
-  const onSubmit = (data: InsertContactMessage) => {
-    mutation.mutate(data);
+    if (message.length < 10) {
+      toast({
+        title: "Error",
+        description: "Message must be at least 10 characters.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!email.includes("@")) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    formRef.current?.submit();
   };
 
   return (
@@ -86,89 +76,67 @@ export function Contact() {
           <div className="grid md:grid-cols-5 gap-12">
             <div className="md:col-span-3">
               <Card className="p-8">
-                {isSuccess ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-12"
+                <form
+                  ref={formRef}
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  data-testid="form-contact"
+                >
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="YOUR_WEB3FORMS_ACCESS_KEY_HERE"
+                  />
+                  <input
+                    type="hidden"
+                    name="redirect"
+                    value={window.location.href}
+                  />
+
+                  <div>
+                    <label className="text-sm font-semibold mb-2 block">Name</label>
+                    <Input
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                      data-testid="input-name"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-semibold mb-2 block">Email</label>
+                    <Input
+                      type="email"
+                      name="email"
+                      placeholder="your.email@example.com"
+                      required
+                      data-testid="input-email"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-sm font-semibold mb-2 block">Message</label>
+                    <Textarea
+                      name="message"
+                      placeholder="Tell me about your project or how I can help..."
+                      rows={6}
+                      required
+                      minLength={10}
+                      data-testid="input-message"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    data-testid="button-submit-contact"
                   >
-                    <CheckCircle2 className="h-16 w-16 text-primary mx-auto mb-4" />
-                    <h3 className="text-2xl font-semibold mb-2">Message Sent!</h3>
-                    <p className="text-muted-foreground">
-                      Thank you for reaching out. I'll get back to you soon.
-                    </p>
-                  </motion.div>
-                ) : (
-                  <Form {...form}>
-                    <form
-                      onSubmit={form.handleSubmit(onSubmit)}
-                      className="space-y-6"
-                      data-testid="form-contact"
-                    >
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Name</FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Your name"
-                                {...field}
-                                data-testid="input-name"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email</FormLabel>
-                            <FormControl>
-                              <Input
-                                type="email"
-                                placeholder="your.email@example.com"
-                                {...field}
-                                data-testid="input-email"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Message</FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder="Tell me about your project or how I can help..."
-                                rows={6}
-                                {...field}
-                                data-testid="input-message"
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <Button
-                        type="submit"
-                        className="w-full"
-                        disabled={mutation.isPending}
-                        data-testid="button-submit-contact"
-                      >
-                        {mutation.isPending ? "Sending..." : "Send Message"}
-                      </Button>
-                    </form>
-                  </Form>
-                )}
+                    Send Message
+                  </Button>
+                </form>
               </Card>
             </div>
 
@@ -179,13 +147,16 @@ export function Contact() {
                     <Mail className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
+                    <h3 className="font-semibold mb-2">Email</h3>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      You can also email me directly:
+                    </p>
                     <a
-                      href="mailto:contact@agasyabutolia.com"
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      href="mailto:agasyabutolia@gmail.com"
+                      className="text-sm font-medium text-primary hover:underline transition-colors"
                       data-testid="text-contact-email"
                     >
-                      contact@agasyabutolia.com
+                      agasyabutolia@gmail.com
                     </a>
                   </div>
                 </div>

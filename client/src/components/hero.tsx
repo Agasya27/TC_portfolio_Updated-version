@@ -2,6 +2,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import heroImage from "@assets/generated_images/hero_section_coding_background.png";
+import { AnimatedName } from "./animated-name";
 
 export function Hero() {
   const scrollToSection = (id: string) => {
@@ -26,12 +27,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1
-            className="text-6xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight text-white mb-6"
-            data-testid="text-hero-name"
-          >
-            Agasya Butolia
-          </h1>
+          <AnimatedName />
           <p
             className="text-xl md:text-2xl text-white/90 mb-4"
             data-testid="text-hero-role"

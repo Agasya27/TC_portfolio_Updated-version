@@ -1,0 +1,109 @@
+Continue working on the existing interactive portfolio project, but now make the following focused changes and improvements.
+
+DO NOT rebuild the whole project. Only modify the relevant components (Hero/Name text, Projects section, Contact section) as described below.
+
+====================================================
+1) HERO SECTION – ANIMATED NAME TEXT
+====================================================
+
+In the Hero section where my name is displayed ("Agasya Butolia"):
+
+- Add a **good-looking text animation** to my name.
+- The animation should:
+  - Be smooth and modern (e.g., typewriter effect, fade-in with slight scale, or letter-by-letter reveal).
+  - Run when the page loads or when the Hero section comes into view.
+  - Not be too aggressive or flashy; it should feel professional.
+
+Implementation suggestions (choose one that fits the current stack):
+- Use CSS animations or Tailwind with keyframes.
+- Or use Framer Motion if it’s already installed.
+- Keep the animation logic in a clean component (e.g., `AnimatedName`).
+
+Make sure this does NOT break responsiveness or layout on mobile.
+
+====================================================
+2) PROJECTS SECTION – REMOVE IMAGES, ADD GITHUB LINKS
+====================================================
+
+In the Projects section:
+
+- Remove any **project images/thumbnails** that are currently being displayed.
+- For each project card, add a **“View on GitHub” button or link** that points to these URLs:
+
+  Project 1 – Mini Smart Computer with IoT  
+  - GitHub: https://github.com/Agasya27/mini-computer-with-implementation-of-IOT
+
+  Project 2 – Pneumonia Detection using AI  
+  - GitHub: https://github.com/Agasya27/pneumonia-detection-ML-pro
+
+  Project 3 – Data Visualization Dashboard  
+  - GitHub: https://github.com/Agasya27/Data-Visualization-Dashboard
+
+Update the project data (backend `/api/projects` or frontend mapping, whichever is used) so that:
+- Each project has a `github` field set to the corresponding URL above.
+- The UI shows a nice button/link (e.g., “GitHub Repo”) that opens the repo in a new tab.
+
+Keep the cards clean and attractive, but with NO images, only text + buttons/badges.
+
+====================================================
+3) CONTACT SECTION – ADD WEB3FORMS INTEGRATION
+====================================================
+
+In the Contact section, I want the form to submit via **Web3Forms**.
+
+- Integrate **Web3Forms** with the existing contact form.
+- Use the standard Web3Forms HTML form pattern, for example:
+  - `action="https://api.web3forms.com/submit"`
+  - `method="POST"`
+- Add the hidden `access_key` input with a placeholder value and a clear comment for me to replace later, for example:
+  - `<input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />`
+- Keep the existing fields: **name, email, message** (and any others that make sense).
+- Show a **success / error message** in the UI after submission (use Web3Forms response, or a simple optimistic UI if you can’t access details).
+
+You can:
+- Either switch the form to use Web3Forms instead of the `/api/contact` backend endpoint,
+- Or keep `/api/contact` for other purposes but make sure the visible contact form submits to Web3Forms.
+
+Make sure the form still looks nice with Tailwind styling.
+
+====================================================
+4) CONTACT SECTION – ADD MY EMAIL VISIBLY
+====================================================
+
+In the Contact/Contact Me section, also:
+
+- Add my email address **visibly** so that people can contact me directly:
+  - `agasyabutolia@gmail.com`
+- Make it a clickable `mailto:` link, styled cleanly (e.g., small icon + text or a simple link with underline on hover).
+- Place it near the contact form with a short line like:
+  - “You can also email me directly at: [email link]”
+
+====================================================
+5) VISUAL POLISH (OPTIONAL BUT APPRECIATED)
+====================================================
+
+Where appropriate, enhance the visual design slightly so that:
+
+- The animated name in the Hero section stands out nicely.
+- The project cards look balanced without images (use spacing, borders, shadows, hover effects).
+- The Contact section feels cohesive with the rest of the site.
+
+Do NOT introduce new pages or big structural changes. Just refine what’s there.
+
+====================================================
+IMPORTANT
+====================================================
+
+- Do NOT remove my existing project data or chatbot integration.
+- Do NOT break the build or introduce runtime errors.
+- Only modify what’s necessary to:
+  - Animate my name text in the Hero.
+  - Remove project images and add GitHub links (with the exact URLs provided).
+  - Integrate Web3Forms into the Contact form.
+  - Add my visible email address `agasyabutolia@gmail.com` in the Contact section.
+
+When you’re done, briefly describe:
+- Which files you edited.
+- What kind of animation you used for my name.
+- How the Web3Forms integration is wired and where I should paste my `access_key`.
+

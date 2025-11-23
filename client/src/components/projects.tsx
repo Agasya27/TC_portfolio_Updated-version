@@ -70,13 +70,6 @@ export function Projects() {
                     className="flex flex-col h-full hover-elevate"
                     data-testid={`card-project-${project.id}`}
                   >
-                    <div className="aspect-video bg-muted rounded-t-xl overflow-hidden">
-                      <img
-                        src={`/project-${(index % 3) + 1}.png`}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
                     <div className="p-6 flex flex-col flex-grow">
                       <h3
                         className="text-2xl font-bold mb-3"
@@ -103,27 +96,10 @@ export function Projects() {
                         ))}
                       </div>
                       <div className="flex gap-3 mt-auto">
-                        {project.link && (
+                        {project.github && (
                           <Button
                             asChild
                             className="flex-1"
-                            data-testid={`button-view-project-${project.id}`}
-                          >
-                            <a
-                              href={project.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <ExternalLink className="h-4 w-4 mr-2" />
-                              View Project
-                            </a>
-                          </Button>
-                        )}
-                        {project.github && (
-                          <Button
-                            size="icon"
-                            variant="outline"
-                            asChild
                             data-testid={`button-github-${project.id}`}
                           >
                             <a
@@ -131,7 +107,24 @@ export function Projects() {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <Github className="h-4 w-4" />
+                              <Github className="h-4 w-4 mr-2" />
+                              View on GitHub
+                            </a>
+                          </Button>
+                        )}
+                        {project.link && (
+                          <Button
+                            size="icon"
+                            variant="outline"
+                            asChild
+                            data-testid={`button-view-project-${project.id}`}
+                          >
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <ExternalLink className="h-4 w-4" />
                             </a>
                           </Button>
                         )}
