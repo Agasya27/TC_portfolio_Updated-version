@@ -37,7 +37,6 @@ const skillCategories = [
       "Git",
       "GitHub",
       "VS Code",
-      "IoT Hardware Tools",
       "AI/ML",
       "Deep Learning",
     ],
